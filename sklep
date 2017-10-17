@@ -1,0 +1,5 @@
+mini sklep
+- spis wszystkich produktow -"baza" (Application Context) 
+- formularz zakupowy
+- koszyk (httpSession)
+Map <Book,Integer>

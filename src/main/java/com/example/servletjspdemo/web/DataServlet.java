@@ -24,15 +24,15 @@ public class DataServlet extends HttpServlet {
 		
 		if(request.getParameter("imie").length() == 0)
 		{
-			out.println("<html><body><h2>B£¥D</h2>" +
-					"<p>Imie nie moze byæ puste <br />" +
-					"<a href="http://">Powrót</a>"+
+			out.println("<html><body><h2>Bï¿½ï¿½D</h2>" +
+					"<p>Imie nie moze byï¿½ puste <br />" +
+					"<a href='http://'>Poswrï¿½t</a>"+
 					
 					"</body></html>");
 		}
 		else if(request.getParameter("nazwisko").length() == 0)
 		{
-			out.println("<html><body><h2>B£¥D</h2>" +
+			out.println("<html><body><h2>Bï¿½ï¿½D</h2>" +
 					"<p>Nazwisko nie moze byc puste <br />" +
 
 					"</body></html>");
@@ -40,8 +40,8 @@ public class DataServlet extends HttpServlet {
 		
 		else if(request.getParameter("data_ur").matches("\\d{4}-\\d{2}-\\d{2}")==false)
 		{
-			out.println("<html><body><h2>B£¥D</h2>" +
-					"<p>Z³y format daty<br />" +
+			out.println("<html><body><h2>Bï¿½ï¿½D</h2>" +
+					"<p>Zï¿½y format daty<br />" +
 
 					"</body></html>");
 		}
