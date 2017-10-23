@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="session" />
 
+<jsp:setProperty name="shoe" property="*" />
+<jsp:useBean id="storageS" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
+
+<% 
+  storageS.addToBasket(shoe); 
+%>
 </body>
 </html>
