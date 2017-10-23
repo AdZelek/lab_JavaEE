@@ -70,6 +70,13 @@ public final class getPersonData_jsp extends org.apache.jasper.runtime.HttpJspBa
       }
       out.write("\r\n");
       out.write("\r\n");
+ 
+ //Person p = new Person();
+  person.setFirstName("Ada"); 
+  person.setYob(1999);
+  storage.add(person);
+
+      out.write("\r\n");
       out.write("<form action=\"addPerson.jsp\">\r\n");
       out.write("\r\n");
       out.write("  First name :<input type=\"text\" name=\"firstName\" value=\"");

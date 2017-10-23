@@ -11,6 +11,12 @@
 <jsp:useBean id="storage" class="com.example.servletjspdemo.service.StorageService" scope="application" />
 <jsp:useBean id="person" class="com.example.servletjspdemo.domain.Person" scope="session" />
 
+<% 
+ //Person p = new Person();
+  person.setFirstName("Ada"); 
+  person.setYob(1999);
+  storage.add(person);
+%>
 <form action="addPerson.jsp">
 
   First name :<input type="text" name="firstName" value="${person.firstName}" /><br />
