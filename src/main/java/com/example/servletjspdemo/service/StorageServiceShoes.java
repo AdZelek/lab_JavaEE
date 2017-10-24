@@ -28,9 +28,15 @@ public class StorageServiceShoes {
 	public List<Shoe> getAllShoesBasket(){
 		return basket;
 	}
-	public void addShoesBase()
-	{
-		
-	}
+	
+	public void generateTestData() {
+		Shoe shoe1 = new Shoe("Adidas M23",40,199.99); 
+		Shoe shoe2 = new Shoe("Adidas V23",39,299.99); 
+		Shoe shoe3 = new Shoe("Nike 1200",37,99.99); 
+		add(shoe1);
+		add(shoe2);
+		add(shoe3);
+		  
+    }
 
 }

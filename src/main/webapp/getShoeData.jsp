@@ -13,18 +13,8 @@
 <jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="application" />
 
 <% 
-  //Shoe shoe = new Shoe();
  
-  shoe.setName("Adidas M23") ;
-  shoe.setPrice(199.99);
-  shoe.setSize(40);
-  storageS.add(shoe);
-  
-  shoe.setName("Adidas V23") ;
-  shoe.setPrice(399.99);
-  shoe.setSize(38);
-  storageS.add(shoe);
-
+ storageS.generateTestData(); 
   
    out.println("<form action='addShoe.jsp'>");
 
