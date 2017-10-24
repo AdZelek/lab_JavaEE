@@ -33,10 +33,23 @@ public class StorageServiceShoes {
 		Shoe shoe1 = new Shoe("Adidas M23",40,199.99); 
 		Shoe shoe2 = new Shoe("Adidas V23",39,299.99); 
 		Shoe shoe3 = new Shoe("Nike 1200",37,99.99); 
+		Shoe shoe4 = new Shoe("Nike 2200",38,199.99); 
 		add(shoe1);
 		add(shoe2);
 		add(shoe3);
+		add(shoe4);
 		  
     }
+	public Shoe find(String name)
+	{
+		for (int i = 0; i<getAllShoesBasket().size(); i++) 
+		{
+			if(getAllShoes().get(i).getName() == name) return getAllShoes().get(i) ; 
+		}
+		
+		return null; 
+		
+		
+	}
 
 }

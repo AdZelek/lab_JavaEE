@@ -10,17 +10,19 @@
 </head>
 <body>
 <jsp:useBean id="storageS" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
-<jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="application" />
+<jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="session" />
 
 <% 
- 
+  if(session.isNew()==true)
  storageS.generateTestData(); 
   
    out.println("<form action='addShoe.jsp'>");
-
+// zrobic funkcje find znajdowanie produktu przez nazwe albo value rozbudowane 
     for (Shoe shoeShow : storageS.getAllShoes()) {
 	  out.print("<p>Name: " + shoeShow.getName() + "; Size: " + shoeShow.getSize() +"; Price: " +shoeShow.getPrice());
-	  out.println("<input type='checkbox' name='name' value='${shoeShow.getName()}' /><br />"+ "</p>");
+	   shoe=shoeShow;
+	   out.print(storageS.find("Adidas M23").getPrice()); 
+	  out.println("<input type='checkbox' name='+"+shoe.getName()+"'/><br />"+ "</p>");
      }
     out.println("<input type='submit' value='OK'></form>"); %>
   
