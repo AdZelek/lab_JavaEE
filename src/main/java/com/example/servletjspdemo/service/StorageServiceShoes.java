@@ -1,6 +1,7 @@
 package com.example.servletjspdemo.service;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 import com.example.servletjspdemo.domain.Person;
@@ -10,6 +11,7 @@ public class StorageServiceShoes {
 	
 	private List<Shoe> db = new ArrayList<Shoe>();
 	private List<Shoe> basket = new ArrayList<Shoe>();
+	public  Enumeration <String> basket_2 ;
 	
 	public void add(Shoe shoe){
 		Shoe newShoe = new Shoe(shoe.getName(),shoe.getSize(),shoe.getPrice()); 

@@ -10,18 +10,41 @@
 <body>
 <jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="session" />
 
-<jsp:setProperty name="shoe" property="*" /> 
+<%-- <jsp:setProperty name="shoe" property="*" /> --%> 
 <jsp:useBean id="storageS" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
 
-<% 
-   Shoe s = new Shoe(); 
-  s = storageS.find(shoe.getName()); 
-  storageS.addToBasket(s);
-  
- /*  for (Shoe shoeShow : storageS.getAllShoesBasket()) {
-	 out.print("<p>Name: " + shoeShow.getName() + "; Size: " + shoeShow.getSize() +"; Price: " +shoeShow.getPrice()+"</p>");
-} */
-%>
+<jsp:declaration>
+java.util.Enumeration parms;
+java.util.Enumeration values;
+</jsp:declaration>
+
+<jsp:scriptlet>
+/* //shoe = 
+out.println(shoe.getName());  */
+parms = request.getParameterNames();
+values = request.getParameterNames();
+
+while(parms.hasMoreElements()) {
+	String name = (String) parms.nextElement();
+	String value = (String) values.nextElement();
+	out.println("name " + name);
+	out.println("value "+value);
+    session.setAttribute(name, value); 
+}
+
+</jsp:scriptlet> 
+
+
+<jsp:scriptlet><![CDATA[ 
+java.util.Enumeration content = session.getAttributeNames();
+content.nextElement();
+while (content.hasMoreElements()) {
+    out.println(content.nextElement());
+    out.println("<br>");
+}
+
+ ]]></jsp:scriptlet>
+
 
 </body>
 </html>
