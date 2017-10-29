@@ -10,40 +10,30 @@
 <body>
 <jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="session" />
 
-<%-- <jsp:setProperty name="shoe" property="*" /> --%> 
-<jsp:useBean id="storageS" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
-
-<jsp:declaration>
-java.util.Enumeration parms;
-java.util.Enumeration values;
-</jsp:declaration>
-
-<jsp:scriptlet>
-/* //shoe = 
-out.println(shoe.getName());  */
-parms = request.getParameterNames();
-values = request.getParameterNames();
-
-while(parms.hasMoreElements()) {
-	String name = (String) parms.nextElement();
-	String value = (String) values.nextElement();
-	out.println("name " + name);
-	out.println("value "+value);
-    session.setAttribute(name, value); 
-}
-
-</jsp:scriptlet> 
+<jsp:setProperty name="shoe" property="*" /> 
+<jsp:useBean id="storage" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
 
 
-<jsp:scriptlet><![CDATA[ 
-java.util.Enumeration content = session.getAttributeNames();
-content.nextElement();
-while (content.hasMoreElements()) {
-    out.println(content.nextElement());
-    out.println("<br>");
-}
+<% 
+Shoe s = new Shoe(request.getParameter("name"), Integer.parseInt(request.getParameter("size")),
+				  Double.parseDouble(request.getParameter("price")));
+storage.addToBasket(s); 
+out.print("Added to cart: " + shoe.getName()); 
+ 
 
- ]]></jsp:scriptlet>
+  
+    for (Shoe shoeShow : storage.getAllShoesBasket() ) {
+      out.println("<form action='deleteShoe.jsp'>");
+      out.print("<p>Name: " + shoeShow.getName() + "; Size: " + shoeShow.getSize() +"; Price: " +shoeShow.getPrice());
+	  out.println("<input type=\"hidden\" name=\"name\" value=\""+shoeShow.getName()+"\">\n");
+	  out.println("<input type=\"hidden\" name=\"size\" value=\""+shoeShow.getSize()+"\">\n");
+	  out.println("<input type=\"hidden\" name=\"price\" value=\""+shoeShow.getPrice()+"\">\n");
+	  out.println("<input type='submit' value='Delete'></form>");
+    }
+     %>
+<p><a href='/servletjspdemo/getShoeData.jsp'> Back</a></p>
+
+
 
 
 </body>

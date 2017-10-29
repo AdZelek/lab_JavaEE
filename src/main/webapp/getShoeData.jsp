@@ -9,23 +9,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:useBean id="storageS" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
-<%-- <jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="session" /> --%>
+<jsp:useBean id="storage" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
+<jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="session" />
 
 
 <% 
-  if(session.isNew()==true)
- storageS.generateTestData(); 
+	
+  if(session.isNew())
+ storage.generateTestData(); 
+
   
-   out.println("<form action='addShoe.jsp'>");
-// zrobic funkcje find znajdowanie produktu przez nazwe albo value rozbudowane 
-    for (Shoe shoeShow : storageS.getAllShoes()) {
-	  out.print("<p>Name: " + shoeShow.getName() + "; Size: " + shoeShow.getSize() +"; Price: " +shoeShow.getPrice());
-	   //out.print(storageS.find("Adidas M23").getPrice()); 
-	  out.println("<input type='checkbox' name='"+shoeShow.getName()+"'/><br />");
-	 
+    for (Shoe shoeShow : storage.getAllShoes()) {
+      out.println("<form action='addShoe.jsp'>");
+      out.print("<p>Name: " + shoeShow.getName() + "; Size: " + shoeShow.getSize() +"; Price: " +shoeShow.getPrice());
+	  out.println("<input type=\"hidden\" name=\"name\" value=\""+shoeShow.getName()+"\">\n");
+	  out.println("<input type=\"hidden\" name=\"size\" value=\""+shoeShow.getSize()+"\">\n");
+	  out.println("<input type=\"hidden\" name=\"price\" value=\""+shoeShow.getPrice()+"\">\n");
+	  out.println("<input type='submit' value='Add'></form>");
      }
-    out.println("<input type='submit' value='OK'></form>"); %>
+     %>
   
 
 
