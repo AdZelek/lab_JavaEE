@@ -10,8 +10,6 @@ import com.example.servletjspdemo.domain.Shoe;
 public class StorageServiceShoes {
 	
 	private List<Shoe> db = new ArrayList<Shoe>();
-	private List<Shoe> basket = new ArrayList<Shoe>();
-	public  Enumeration <String> basket_2 ;
 	
 	public void add(Shoe shoe){
 		Shoe newShoe = new Shoe(shoe.getName(),shoe.getSize(),shoe.getPrice()); 
@@ -21,19 +19,17 @@ public class StorageServiceShoes {
 	public List<Shoe> getAllShoes(){
 		return db;
 	}
-	
+	/*
 	public void addToBasket(Shoe shoe){
-		Shoe newShoe = new Shoe(shoe.getName(),shoe.getSize(),shoe.getPrice()); 
-		basket.add(newShoe);
+		basket.add(shoe);
 	}
 	public void deleteToBasket(Shoe shoe){
-		//Shoe newShoe = new Shoe(shoe.getName(),shoe.getSize(),shoe.getPrice()); 
-		basket.remove(shoe); 
+ 		basket.remove(shoe); 
 	}
 	
 	public List<Shoe> getAllShoesBasket(){
 		return basket;
-	}
+	}*/
 	
 	public void generateTestData() {
 		Shoe shoe1 = new Shoe("Adidas M23",40,199.99); 
@@ -46,16 +42,6 @@ public class StorageServiceShoes {
 		add(shoe4);
 		  
     }
-	public Shoe find(String name)
-	{
-		for (int i = 0; i<getAllShoesBasket().size(); i++) 
-		{
-			if(getAllShoes().get(i).getName() == name) return getAllShoes().get(i) ; 
-		}
-		
-		return null; 
-		
-		
-	}
-
+	
+	
 }

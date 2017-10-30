@@ -12,19 +12,20 @@
 
 <jsp:setProperty name="shoe" property="*" /> 
 <jsp:useBean id="storage" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
+<jsp:useBean id="storageBasket" class="com.example.servletjspdemo.service.StorageServiceBasket" scope="session" />
 
 
 <% 
 if(session.getAttribute(request.getParameter("name"))==null){
 Shoe s = new Shoe(request.getParameter("name"), Integer.parseInt(request.getParameter("size")),
 				  Double.parseDouble(request.getParameter("price")));
-storage.addToBasket(s); 
+storageBasket.addToBasket(s); 
 out.print("Added to cart: " + shoe.getName()); 
 session.setAttribute( request.getParameter("name"),request.getParameter("name"));}
 else out.print("added earlier \n"); 
 
      %>
-<p><a href='/servletjspdemo/getShoeData.jsp'> Back</a></p>
+<p><a href='/servletjspdemo/index.jsp'> Back</a></p>
 <p><a href='/servletjspdemo/showBasket.jsp'> Cart</a></p>
 
 

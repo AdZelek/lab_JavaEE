@@ -11,22 +11,23 @@
 <jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="session" />
 <jsp:setProperty name="shoe" property="*" /> 
 <jsp:useBean id="storage" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
+<jsp:useBean id="storageBasket" class="com.example.servletjspdemo.service.StorageServiceBasket" scope="session" />
 
 <%
 
 Shoe s = new Shoe(request.getParameter("name"), Integer.parseInt(request.getParameter("size")),
 		  Double.parseDouble(request.getParameter("price")));
 
-out.print(storage.getAllShoesBasket().size()); 
-storage.deleteToBasket(shoe);
-out.print(storage.getAllShoesBasket().size()); 
+out.print(storageBasket.getAllShoesBasket().size()); 
+storageBasket.deleteToBasket(s);
+out.print(storageBasket.getAllShoesBasket().size()); 
 //deleteToBasket(s); 
 
 out.print("delete "+request.getParameter("name")); 
 session.removeValue(request.getParameter("name"));
 
 %>
-<p><a href='/servletjspdemo/getShoeData.jsp'>Back to add product</a></p>
+<p><a href='/servletjspdemo/index.jsp'>Back to add product</a></p>
 
 
 </body>

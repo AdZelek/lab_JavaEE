@@ -11,11 +11,12 @@
 <jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="session" />
 
 <jsp:setProperty name="shoe" property="*" />  
-<jsp:useBean id="storage" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
+ <jsp:useBean id="storage" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
+ <jsp:useBean id="storageBasket" class="com.example.servletjspdemo.service.StorageServiceBasket" scope="session" />
 
 
 <% 
-	 for (Shoe shoeShow : storage.getAllShoesBasket() ) {
+	 for (Shoe shoeShow : storageBasket.getAllShoesBasket() ) {
       out.println("<form action='deleteShoe.jsp'>");
       out.print("<p>Name: " + shoeShow.getName() + "; Size: " + shoeShow.getSize() +"; Price: " +shoeShow.getPrice());
 	  out.println("<input type=\"hidden\" name=\"name\" value=\""+shoeShow.getName()+"\">\n");
@@ -24,7 +25,7 @@
 	  out.println("<input type='submit' value='Delete'></form>");
     }
      %>
-<p><a href='/servletjspdemo/getShoeData.jsp'> Back</a></p>
+<p><a href='/servletjspdemo/index.jsp'> Back</a></p>
 
 
 
