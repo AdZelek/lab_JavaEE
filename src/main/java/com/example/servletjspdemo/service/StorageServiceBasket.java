@@ -5,7 +5,6 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 
-import com.example.servletjspdemo.domain.Person;
 import com.example.servletjspdemo.domain.Shoe;
 
 public class StorageServiceBasket {
