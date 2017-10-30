@@ -10,22 +10,21 @@
 <body>
 <jsp:useBean id="shoe" class="com.example.servletjspdemo.domain.Shoe" scope="session" />
 
-<jsp:setProperty name="shoe" property="*" /> 
+<jsp:setProperty name="shoe" property="*" />  
 <jsp:useBean id="storage" class="com.example.servletjspdemo.service.StorageServiceShoes" scope="application" />
 
 
 <% 
-if(session.getAttribute(request.getParameter("name"))==null){
-Shoe s = new Shoe(request.getParameter("name"), Integer.parseInt(request.getParameter("size")),
-				  Double.parseDouble(request.getParameter("price")));
-storage.addToBasket(s); 
-out.print("Added to cart: " + shoe.getName()); 
-session.setAttribute( request.getParameter("name"),request.getParameter("name"));}
-else out.print("added earlier \n"); 
-
+	 for (Shoe shoeShow : storage.getAllShoesBasket() ) {
+      out.println("<form action='deleteShoe.jsp'>");
+      out.print("<p>Name: " + shoeShow.getName() + "; Size: " + shoeShow.getSize() +"; Price: " +shoeShow.getPrice());
+	  out.println("<input type=\"hidden\" name=\"name\" value=\""+shoeShow.getName()+"\">\n");
+	  out.println("<input type=\"hidden\" name=\"size\" value=\""+shoeShow.getSize()+"\">\n");
+	  out.println("<input type=\"hidden\" name=\"price\" value=\""+shoeShow.getPrice()+"\">\n");
+	  out.println("<input type='submit' value='Delete'></form>");
+    }
      %>
 <p><a href='/servletjspdemo/getShoeData.jsp'> Back</a></p>
-<p><a href='/servletjspdemo/showBasket.jsp'> Cart</a></p>
 
 
 

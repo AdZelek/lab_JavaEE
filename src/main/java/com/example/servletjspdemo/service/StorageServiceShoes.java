@@ -26,6 +26,10 @@ public class StorageServiceShoes {
 		Shoe newShoe = new Shoe(shoe.getName(),shoe.getSize(),shoe.getPrice()); 
 		basket.add(newShoe);
 	}
+	public void deleteToBasket(Shoe shoe){
+		//Shoe newShoe = new Shoe(shoe.getName(),shoe.getSize(),shoe.getPrice()); 
+		basket.remove(shoe); 
+	}
 	
 	public List<Shoe> getAllShoesBasket(){
 		return basket;
