@@ -2,6 +2,7 @@ package com.example.servletjspdemo.service;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.List;
 
 import com.example.servletjspdemo.domain.Person;
@@ -16,9 +17,25 @@ public class StorageServiceBasket {
 	public void addToBasket(Shoe shoe){
 		basket.add(shoe);
 	}
-	public void deleteToBasket(Shoe shoe){
+	/*WHY
+	 * public void deleteToBasket(Shoe shoe){
  		basket.remove(shoe); 
+	}*/
+	public void deleteToBasket(String name){
+
+	Iterator<Shoe> iter = basket.iterator();
+	while (iter.hasNext()) 
+	{
+	   Shoe shoe = iter.next();
+	    if(shoe.getName().equals(name))
+	        iter.remove();
 	}
+	    
+	}
+	
+	
+	
+	
 	
 	public List<Shoe> getAllShoesBasket(){
 		return basket;

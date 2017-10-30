@@ -15,13 +15,11 @@
 
 <%
 
-Shoe s = new Shoe(request.getParameter("name"), Integer.parseInt(request.getParameter("size")),
+/* Shoe s = new Shoe(request.getParameter("name"), Integer.parseInt(request.getParameter("size")),
 		  Double.parseDouble(request.getParameter("price")));
+ */
+storageBasket.deleteToBasket(shoe.getName());
 
-out.print(storageBasket.getAllShoesBasket().size()); 
-storageBasket.deleteToBasket(s);
-out.print(storageBasket.getAllShoesBasket().size()); 
-//deleteToBasket(s); 
 
 out.print("delete "+request.getParameter("name")); 
 session.removeValue(request.getParameter("name"));
