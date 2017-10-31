@@ -18,17 +18,7 @@ public class StorageServiceShoes {
 	public List<Shoe> getAllShoes(){
 		return db;
 	}
-	/*
-	public void addToBasket(Shoe shoe){
-		basket.add(shoe);
-	}
-	public void deleteToBasket(Shoe shoe){
- 		basket.remove(shoe); 
-	}
 	
-	public List<Shoe> getAllShoesBasket(){
-		return basket;
-	}*/
 	
 	public void generateTestData() {
 		Shoe shoe1 = new Shoe("Adidas M23",40,199.99); 
