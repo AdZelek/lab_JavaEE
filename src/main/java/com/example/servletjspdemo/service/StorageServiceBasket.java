@@ -16,12 +16,8 @@ public class StorageServiceBasket {
 	public void addToBasket(Shoe shoe){
 		basket.add(shoe);
 	}
-	/*WHY
-	 * public void deleteToBasket(Shoe shoe){
- 		basket.remove(shoe); 
-	}*/
+	
 	public void deleteToBasket(String name){
-
 	Iterator<Shoe> iter = basket.iterator();
 	while (iter.hasNext()) 
 	{
